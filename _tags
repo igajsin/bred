@@ -1,0 +1,2 @@
+true: package(cmdliner)
+true: bin_annot
