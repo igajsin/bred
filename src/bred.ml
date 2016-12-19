@@ -8,8 +8,12 @@ let string_of_output = function
   | Stdout -> "stdout"
   | Outfile file -> file;;
 
+let learn fl =
+  let str = Read.string_of_file fl in
+  str;;
+
 let main deep out files num =
-  let fls = String.concat ", " files in
+  let fls = String.concat ", " (List.map learn files) in
   let outs = string_of_output out in
   Printf.printf "deep = %i\nout = %s\nfiles = %s\nnum = %i\n" deep outs fls num;;
 
