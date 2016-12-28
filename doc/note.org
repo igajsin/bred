@@ -1,0 +1,2 @@
+The program reads all files into string.
+Now the time to add producing of markov chain to it.
