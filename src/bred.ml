@@ -14,8 +14,10 @@ let learn fl =
 
 let main deep out files num =
   let fls = String.concat ", " (List.map learn files) in
-  let outs = string_of_output out in
-  Printf.printf "deep = %i\nout = %s\nfiles = %s\nnum = %i\n" deep outs fls num;;
+  let chain = Markov.build_ptable (Markov.split_word fls) deep in
+  let outs = Write.generate_text chain in
+  Printf.printf "%s" outs;;
+
 
 let deep =
   let doc = "How deep the chain?" in
