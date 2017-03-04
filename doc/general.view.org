@@ -1,0 +1,17 @@
+That program reads data from file or files or stdin and produces a random text based on the markov chain tecnology.
+It should work in modes:
+* learn -- read data, learn the chain and store it into a file.
+** 
+* generate -- take a chain, generate a text and store it in a file or send to the stdin.
+* mixed -- do learn stage and generate text immediately without storing a medium chain file.
+
+The project includes files:
+* bred.ml -- The entry point and working with command line options
+* read.ml -- Manipulation with input files and stdin.
+** should parse a file to an internal representation to save the structure of a text.
+* markov.ml -- Making a chain and generation of a text here.
+* write -- Send generated text to stdin or a file.
+** also shoud work with internal representation.
+
+Internal representation
+* Would be discussed further.
