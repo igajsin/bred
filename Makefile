@@ -1,5 +1,7 @@
-OCB_FLAGS = -use-ocamlfind -I src
-OCB = 		ocamlbuild $(OCB_FLAGS)
+SRC	  = src
+OCB_FLAGS = -use-ocamlfind -I $(SRC)
+OCB       = ocamlbuild $(OCB_FLAGS)
+ODOC      = ocamldoc -I $(SRC)
 
 all: 		native byte # profile debug
 
@@ -18,9 +20,12 @@ profile:
 debug:
 			$(OCB) -tag debug bred.byte
 
+doc:
+			$(ODOC) -html -d doc
+
 #test: 		native
 #			./bred.native "OCaml" "OCamlBuild" "users"
 
 
-.PHONY: 	all clean byte native profile debug #test
+.PHONY: 	all clean byte native profile debug doc #test
 

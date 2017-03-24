@@ -1,4 +1,4 @@
-(*main project*)
+(** main project *)
 
 open Cmdliner;;
 
