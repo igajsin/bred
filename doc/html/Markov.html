@@ -1,0 +1,73 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<link rel="Start" href="index.html">
+<link rel="previous" href="Write.html">
+<link rel="Up" href="index.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Bred" rel="Chapter" href="Bred.html">
+<link title="Read" rel="Chapter" href="Read.html">
+<link title="Write" rel="Chapter" href="Write.html">
+<link title="Markov" rel="Chapter" href="Markov.html"><title>Markov</title>
+</head>
+<body>
+<div class="navbar"><a class="pre" href="Write.html" title="Write">Previous</a>
+&nbsp;<a class="up" href="index.html" title="Index">Up</a>
+&nbsp;</div>
+<h1>Module <a href="type_Markov.html">Markov</a></h1>
+
+<pre><span class="keyword">module</span> Markov: <code class="code">sig</code> <a href="Markov.html">..</a> <code class="code">end</code></pre><hr width="100%">
+
+<pre><code><span id="TYPEdistribution"><span class="keyword">type</span> <code class="type"></code>distribution</span> = {</code></pre><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTdistribution.total">total</span>&nbsp;: <code class="type">int</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTdistribution.amounts">amounts</span>&nbsp;: <code class="type">(string * int) list</code>;</code></td>
+
+</tr></table>
+}
+
+
+
+<pre><code><span id="TYPEptable"><span class="keyword">type</span> <code class="type"></code>ptable</span> = {</code></pre><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTptable.prefix_length">prefix_length</span>&nbsp;: <code class="type">int</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTptable.table">table</span>&nbsp;: <code class="type">(string list, <a href="Markov.html#TYPEdistribution">distribution</a>) Hashtbl.t</code>;</code></td>
+
+</tr></table>
+}
+
+
+
+<pre><span id="VALis_word"><span class="keyword">val</span> is_word</span> : <code class="type">char -> bool</code></pre>
+<pre><span id="VALis_punctuation"><span class="keyword">val</span> is_punctuation</span> : <code class="type">char -> bool</code></pre>
+<pre><span id="VALis_sentence_separator"><span class="keyword">val</span> is_sentence_separator</span> : <code class="type">char -> bool</code></pre>
+<pre><span id="VALsplit_word"><span class="keyword">val</span> split_word</span> : <code class="type">string -> string list</code></pre>
+<pre><span id="VALstart"><span class="keyword">val</span> start</span> : <code class="type">int -> string list</code></pre>
+<pre><span id="VALshift"><span class="keyword">val</span> shift</span> : <code class="type">'a list -> 'a -> 'a list</code></pre>
+<pre><span id="VALadd_to"><span class="keyword">val</span> add_to</span> : <code class="type">('a, 'b list) Hashtbl.t -> 'a -> 'b -> unit</code></pre>
+<pre><span id="VALcompute_distribution"><span class="keyword">val</span> compute_distribution</span> : <code class="type">string list -> <a href="Markov.html#TYPEdistribution">distribution</a></code></pre>
+<pre><span id="VALnext_in_htable"><span class="keyword">val</span> next_in_htable</span> : <code class="type">('a, <a href="Markov.html#TYPEdistribution">distribution</a>) Hashtbl.t -> 'a -> string</code></pre>
+<pre><span id="VALbuild_ptable"><span class="keyword">val</span> build_ptable</span> : <code class="type">string list -> int -> <a href="Markov.html#TYPEptable">ptable</a></code></pre>
+<pre><span id="VALwalk_ptable"><span class="keyword">val</span> walk_ptable</span> : <code class="type"><a href="Markov.html#TYPEptable">ptable</a> -> string list</code></pre></body></html>
