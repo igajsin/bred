@@ -23,3 +23,8 @@ setup.log
 # temporary files
 *~
 *#*
+
+# pdflatex temporary files
+*.aux
+*.log
+*.toc

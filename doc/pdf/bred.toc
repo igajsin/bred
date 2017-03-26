@@ -1,4 +1,0 @@
-\contentsline {section}{\numberline {1}Module {\tt {Bred}} : main project}{1}
-\contentsline {section}{\numberline {2}Module {\tt {Read}}}{1}
-\contentsline {section}{\numberline {3}Module {\tt {Write}}}{1}
-\contentsline {section}{\numberline {4}Module {\tt {Markov}}}{1}

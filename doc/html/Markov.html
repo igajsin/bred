@@ -20,7 +20,10 @@
 &nbsp;</div>
 <h1>Module <a href="type_Markov.html">Markov</a></h1>
 
-<pre><span class="keyword">module</span> Markov: <code class="code">sig</code> <a href="Markov.html">..</a> <code class="code">end</code></pre><hr width="100%">
+<pre><span class="keyword">module</span> Markov: <code class="code">sig</code> <a href="Markov.html">..</a> <code class="code">end</code></pre><div class="info module top">
+There is constructing markov's chain.<br>
+</div>
+<hr width="100%">
 
 <pre><code><span id="TYPEdistribution"><span class="keyword">type</span> <code class="type"></code>distribution</span> = {</code></pre><table class="typetable">
 <tr>
@@ -39,6 +42,9 @@
 </tr></table>
 }
 
+<div class="info ">
+The presentation for a word's distribution.<br>
+</div>
 
 
 <pre><code><span id="TYPEptable"><span class="keyword">type</span> <code class="type"></code>ptable</span> = {</code></pre><table class="typetable">
@@ -58,16 +64,53 @@
 </tr></table>
 }
 
+<div class="info ">
+The type for a Markov's chain.<br>
+</div>
 
 
-<pre><span id="VALis_word"><span class="keyword">val</span> is_word</span> : <code class="type">char -> bool</code></pre>
-<pre><span id="VALis_punctuation"><span class="keyword">val</span> is_punctuation</span> : <code class="type">char -> bool</code></pre>
-<pre><span id="VALis_sentence_separator"><span class="keyword">val</span> is_sentence_separator</span> : <code class="type">char -> bool</code></pre>
-<pre><span id="VALsplit_word"><span class="keyword">val</span> split_word</span> : <code class="type">string -> string list</code></pre>
-<pre><span id="VALstart"><span class="keyword">val</span> start</span> : <code class="type">int -> string list</code></pre>
-<pre><span id="VALshift"><span class="keyword">val</span> shift</span> : <code class="type">'a list -> 'a -> 'a list</code></pre>
-<pre><span id="VALadd_to"><span class="keyword">val</span> add_to</span> : <code class="type">('a, 'b list) Hashtbl.t -> 'a -> 'b -> unit</code></pre>
-<pre><span id="VALcompute_distribution"><span class="keyword">val</span> compute_distribution</span> : <code class="type">string list -> <a href="Markov.html#TYPEdistribution">distribution</a></code></pre>
-<pre><span id="VALnext_in_htable"><span class="keyword">val</span> next_in_htable</span> : <code class="type">('a, <a href="Markov.html#TYPEdistribution">distribution</a>) Hashtbl.t -> 'a -> string</code></pre>
-<pre><span id="VALbuild_ptable"><span class="keyword">val</span> build_ptable</span> : <code class="type">string list -> int -> <a href="Markov.html#TYPEptable">ptable</a></code></pre>
-<pre><span id="VALwalk_ptable"><span class="keyword">val</span> walk_ptable</span> : <code class="type"><a href="Markov.html#TYPEptable">ptable</a> -> string list</code></pre></body></html>
+<pre><span id="VALis_word"><span class="keyword">val</span> is_word</span> : <code class="type">char -> bool</code></pre><div class="info ">
+Check that it's a alphanumerical symbol.<br>
+</div>
+
+<pre><span id="VALis_punctuation"><span class="keyword">val</span> is_punctuation</span> : <code class="type">char -> bool</code></pre><div class="info ">
+Check that it's a punctuation.<br>
+</div>
+
+<pre><span id="VALis_sentence_separator"><span class="keyword">val</span> is_sentence_separator</span> : <code class="type">char -> bool</code></pre><div class="info ">
+Chech that it's a separator between sentencies.<br>
+</div>
+
+<pre><span id="VALsplit_word"><span class="keyword">val</span> split_word</span> : <code class="type">string -> string list</code></pre><div class="info ">
+Split a string to a list of words.<br>
+</div>
+
+<pre><span id="VALstart"><span class="keyword">val</span> start</span> : <code class="type">int -> string list</code></pre><div class="info ">
+Make the list with few "START" words according to depth of chain's learning.<br>
+</div>
+
+<pre><span id="VALshift"><span class="keyword">val</span> shift</span> : <code class="type">'a list -> 'a -> 'a list</code></pre><div class="info ">
+Remove first element of a list and add new one to the end
+    <code class="code">1; 2; 3</code> 4 -&gt; <code class="code">2; 3; 4</code><br>
+</div>
+
+<pre><span id="VALadd_to"><span class="keyword">val</span> add_to</span> : <code class="type">('a, 'b list) Hashtbl.t -> 'a -> 'b -> unit</code></pre><div class="info ">
+Add new word to a chain.<br>
+</div>
+
+<pre><span id="VALcompute_distribution"><span class="keyword">val</span> compute_distribution</span> : <code class="type">string list -> <a href="Markov.html#TYPEdistribution">distribution</a></code></pre><div class="info ">
+Construct a distribution from a list of words.<br>
+</div>
+
+<pre><span id="VALnext_in_htable"><span class="keyword">val</span> next_in_htable</span> : <code class="type">('a, <a href="Markov.html#TYPEdistribution">distribution</a>) Hashtbl.t -> 'a -> string</code></pre><div class="info ">
+Find a continuation for a given word in a distribution.<br>
+</div>
+
+<pre><span id="VALbuild_ptable"><span class="keyword">val</span> build_ptable</span> : <code class="type">string list -> int -> <a href="Markov.html#TYPEptable">ptable</a></code></pre><div class="info ">
+Take a list of words and a depth. Construct markov's chain.<br>
+</div>
+
+<pre><span id="VALwalk_ptable"><span class="keyword">val</span> walk_ptable</span> : <code class="type"><a href="Markov.html#TYPEptable">ptable</a> -> string list</code></pre><div class="info ">
+Produce a random words' list from a given markov's chain.<br>
+</div>
+</body></html>

@@ -7,7 +7,6 @@ type ptable =
     table : (string list, distribution) Hashtbl.t };;
 
 let is_word c =
-  (* check that c is alphanumerical symbol *)
   let idx = Char.code c in
   let is_ab idx =
     (idx > 47 && idx < 58)
@@ -22,7 +21,6 @@ let is_punctuation c =
 let is_sentence_separator c = List.mem c ['?'; '!'; '.'];;
 
 let split_word str =
-  (* split string to list of words *)
   let buf = Buffer.create 3 in
   let res = ref [] in
   let flash_buf ()=

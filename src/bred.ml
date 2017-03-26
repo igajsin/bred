@@ -1,5 +1,3 @@
-(** main project *)
-
 open Cmdliner;;
 
 type output = Stdout | Outfile of string;;

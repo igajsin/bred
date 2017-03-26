@@ -11,4 +11,21 @@
 <link title="Markov" rel="Chapter" href="Markov.html"><title>Markov</title>
 </head>
 <body>
-<code class="code"><span class="keyword">sig</span>&nbsp;&nbsp;<span class="keyword">end</span></code></body></html>
+<code class="code"><span class="keyword">sig</span>
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;distribution&nbsp;=&nbsp;{&nbsp;total&nbsp;:&nbsp;int;&nbsp;amounts&nbsp;:&nbsp;(string&nbsp;*&nbsp;int)&nbsp;list;&nbsp;}
+&nbsp;&nbsp;<span class="keyword">type</span>&nbsp;ptable&nbsp;=&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;prefix_length&nbsp;:&nbsp;int;
+&nbsp;&nbsp;&nbsp;&nbsp;table&nbsp;:&nbsp;(string&nbsp;list,&nbsp;<span class="constructor">Markov</span>.distribution)&nbsp;<span class="constructor">Hashtbl</span>.t;
+&nbsp;&nbsp;}
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;is_word&nbsp;:&nbsp;char&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bool
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;is_punctuation&nbsp;:&nbsp;char&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bool
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;is_sentence_separator&nbsp;:&nbsp;char&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bool
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;split_word&nbsp;:&nbsp;string&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string&nbsp;list
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;start&nbsp;:&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string&nbsp;list
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;shift&nbsp;:&nbsp;<span class="keywordsign">'</span>a&nbsp;list&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="keywordsign">'</span>a&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="keywordsign">'</span>a&nbsp;list
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;add_to&nbsp;:&nbsp;(<span class="keywordsign">'</span>a,&nbsp;<span class="keywordsign">'</span>b&nbsp;list)&nbsp;<span class="constructor">Hashtbl</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="keywordsign">'</span>a&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="keywordsign">'</span>b&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;compute_distribution&nbsp;:&nbsp;string&nbsp;list&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Markov</span>.distribution
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;next_in_htable&nbsp;:&nbsp;(<span class="keywordsign">'</span>a,&nbsp;<span class="constructor">Markov</span>.distribution)&nbsp;<span class="constructor">Hashtbl</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="keywordsign">'</span>a&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;build_ptable&nbsp;:&nbsp;string&nbsp;list&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;int&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Markov</span>.ptable
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;walk_ptable&nbsp;:&nbsp;<span class="constructor">Markov</span>.ptable&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;string&nbsp;list
+<span class="keyword">end</span></code></body></html>
